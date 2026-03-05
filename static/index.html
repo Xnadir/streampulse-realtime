@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamPulse — Real-Time AI Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div class="logo">📡 StreamPulse</div>
+            <p class="tagline">Real-time AI analytics dashboard</p>
+        </header>
+        <div class="controls">
+            <button class="btn btn-start" id="startBtn" onclick="startStream()">▶ Start Stream</button>
+            <button class="btn btn-stop hidden" id="stopBtn" onclick="stopStream()">⏹ Stop</button>
+            <button class="btn btn-reset" id="resetBtn" onclick="resetStats()">↺ Reset</button>
+            <div class="status" id="status">⚪ Disconnected</div>
+        </div>
+        <div class="grid-4" id="statCards">
+            <div class="stat-card"><div class="s-val" id="total">0</div><div class="s-label">Total</div></div>
+            <div class="stat-card pos"><div class="s-val" id="positive">0</div><div class="s-label">Positive</div></div>
+            <div class="stat-card neg"><div class="s-val" id="negative">0</div><div class="s-label">Negative</div></div>
+            <div class="stat-card anom"><div class="s-val" id="anomalies">0</div><div class="s-label">Anomalies</div></div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Live Feed</h3>
+                <div class="feed" id="feed"></div>
+            </div>
+            <div class="card">
+                <h3>Sentiment Distribution</h3>
+                <canvas id="distChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
