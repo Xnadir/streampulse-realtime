@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Great product, fast delivery!",
+    "expected_sentiment": "positive"
+  },
+  {
+    "text": "App crashed again, losing patience",
+    "expected_sentiment": "negative"
+  },
+  {
+    "text": "Ordered the blue one, arrives Thursday",
+    "expected_sentiment": "neutral"
+  },
+  {
+    "text": "Best customer support ever",
+    "expected_sentiment": "positive"
+  },
+  {
+    "text": "Third return this month",
+    "expected_sentiment": "negative"
+  }
+]
