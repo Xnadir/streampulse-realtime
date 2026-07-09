@@ -1,5 +1,7 @@
 # StreamPulse — Real-Time AI Analytics 📡
 
+![Python](https://img.shields.io/badge/python-3.10%2B-blue) ![WebSocket](https://img.shields.io/badge/WebSocket-live-brightgreen) ![License](https://img.shields.io/badge/license-MIT-green) — Real-Time AI Analytics 📡
+
 A real-time AI dashboard that processes streaming data with WebSockets. Monitors live text streams, performs instant sentiment analysis, detects anomalies, and shows the results on a live-updating dashboard.
 
 This is the most technically challenging project in the portfolio — it demonstrates real-time AI inference at scale, something companies like Twitter, Discord, and Datadog need constantly.
