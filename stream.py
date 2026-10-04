@@ -8,6 +8,7 @@ import random
 import asyncio
 import google.generativeai as genai
 from datetime import datetime
+from typing import Optional
 from dotenv import load_dotenv
 
 load_dotenv()
