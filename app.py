@@ -18,6 +18,16 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # track connected clients
 clients: list[WebSocket] = []
 stream_active = False
+
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for monitoring and load balancers."""
+    return {
+        "status": "healthy",
+        "connected_clients": len(clients),
+        "stream_active": stream_active
+    }
 stream_stats = {"total": 0, "positive": 0, "negative": 0, "neutral": 0, "anomalies": 0}
 
 
@@ -42,6 +52,16 @@ async def websocket_endpoint(ws: WebSocket):
                 asyncio.create_task(stream_data(ws))
             elif msg.get("action") == "stop":
                 stream_active = False
+
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for monitoring and load balancers."""
+    return {
+        "status": "healthy",
+        "connected_clients": len(clients),
+        "stream_active": stream_active
+    }
             elif msg.get("action") == "reset":
                 stream_stats.update({"total": 0, "positive": 0, "negative": 0, "neutral": 0, "anomalies": 0})
                 await ws.send_text(json.dumps({"type": "stats", "data": stream_stats}))
@@ -49,6 +69,16 @@ async def websocket_endpoint(ws: WebSocket):
     except WebSocketDisconnect:
         clients.remove(ws)
         stream_active = False
+
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for monitoring and load balancers."""
+    return {
+        "status": "healthy",
+        "connected_clients": len(clients),
+        "stream_active": stream_active
+    }
 
 
 async def stream_data(ws: WebSocket):
@@ -74,6 +104,16 @@ async def stream_data(ws: WebSocket):
 
         except Exception:
             stream_active = False
+
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for monitoring and load balancers."""
+    return {
+        "status": "healthy",
+        "connected_clients": len(clients),
+        "stream_active": stream_active
+    }
             break
 
 
