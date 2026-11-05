@@ -69,3 +69,27 @@ streampulse-realtime/
 ## License
 
 MIT
+
+
+## Architecture
+
+```
+Client (Browser)
+    │
+    ▼
+WebSocket Connection
+    │
+    ▼
+FastAPI Server ──► Stream Generator
+    │                   │
+    ▼                   ▼
+Broadcast to       AI Analysis
+all clients        (Gemini API)
+```
+
+## Docker
+
+```bash
+docker build -t streampulse .
+docker run -p 8000:8000 --env-file .env streampulse
+```
